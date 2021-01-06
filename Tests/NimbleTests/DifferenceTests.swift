@@ -83,6 +83,8 @@ extension String {
             return self
         case .tab:
             return self.replacingOccurrences(of: "|", with: "")
+        @unknown default:
+            fatalError("unknown indentation type \(indentationType)")
         }
     }
 }
@@ -107,7 +109,7 @@ class DifferenceTests: XCTestCase {
         runTest(
             expected: 2,
             received: 3,
-            expectedResults: ["Received: 3\nExpected: 2\n"]
+            expectedResults: ["Expected: 2\nActual\t: 3\n"]
         )
     }
 
@@ -117,7 +119,7 @@ class DifferenceTests: XCTestCase {
         runTest(
             expected: truth,
             received: Person(age: 30),
-            expectedResults: ["age:\n|\tReceived: 30\n|\tExpected: 29\n"]
+            expectedResults: ["age:\n|\tExpected: 29\n|\tActual\t: 30\n"]
         )
     }
 
@@ -126,8 +128,8 @@ class DifferenceTests: XCTestCase {
             expected: truth,
             received: Person(name: "Adam", age: 30),
             expectedResults: [
-                "name:\n|\tReceived: Adam\n|\tExpected: Krzysztof\n",
-                "age:\n|\tReceived: 30\n|\tExpected: 29\n"
+                "name:\n|\tExpected: Krzysztof\n|\tActual\t: Adam\n",
+                "age:\n|\tExpected: 29\n|\tActual\t: 30\n"
             ]
         )
     }
@@ -136,7 +138,7 @@ class DifferenceTests: XCTestCase {
         runTest(
             expected: truth,
             received: Person(address: Person.Address(street: "2nd Street", counter: .init(counter: 1))),
-            expectedResults: ["address:\n|\tcounter:\n|\t|\tcounter:\n|\t|\t|\tReceived: 1\n|\t|\t|\tExpected: 2\n|\tstreet:\n|\t|\tReceived: 2nd Street\n|\t|\tExpected: Times Square\n"]
+            expectedResults: ["address:\n|\tcounter:\n|\t|\tcounter:\n|\t|\t|\tExpected: 2\n|\t|\t|\tActual\t: 1\n|\tstreet:\n|\t|\tExpected: Times Square\n|\t|\tActual\t: 2nd Street\n"]
         )
     }
 
@@ -156,7 +158,7 @@ class DifferenceTests: XCTestCase {
         runTest(
             expected: [1],
             received: [1, 3],
-            expectedResults: ["Different count:\n|\tReceived: (2) [1, 3]\n|\tExpected: (1) [1]\n"]
+            expectedResults: ["Different count:\n|\tExpected: (1) [1]\n|\tActual\t: (2) [1, 3]\n"]
         )
     }
 
@@ -164,7 +166,7 @@ class DifferenceTests: XCTestCase {
         runTest(
             expected: State.loaded([1, 2], "truthString"),
             received: State.loaded([], "stubString"),
-            expectedResults: ["Enum loaded:\n|\t.0:\n|\t|\tDifferent count:\n|\t|\t|\tReceived: (0) []\n|\t|\t|\tExpected: (2) [1, 2]\n|\t.1:\n|\t|\tReceived: stubString\n|\t|\tExpected: truthString\n"]
+            expectedResults: ["Enum loaded:\n|\t.0:\n|\t|\tDifferent count:\n|\t|\t|\tExpected: (2) [1, 2]\n|\t|\t|\tActual\t: (0) []\n|\t.1:\n|\t|\tExpected: truthString\n|\t|\tActual\t: stubString\n"]
         )
     }
 
@@ -173,7 +175,7 @@ class DifferenceTests: XCTestCase {
         runTest(
             expected: [1],
             received: [1, 3],
-            expectedResults: ["Different count:\n|\tReceived: (2)\n|\tExpected: (1)\n"],
+            expectedResults: ["Different count:\n|\tExpected: (1)\n|\tActual\t: (2)\n"],
             skipPrintingOnDiffCount: true
         )
     }
@@ -183,8 +185,8 @@ class DifferenceTests: XCTestCase {
             expected: [Person(), Person(name: "John")],
             received: [Person(name: "John"), Person()],
             expectedResults: [
-                "Collection[0]:\n|\tname:\n|\t|\tReceived: John\n|\t|\tExpected: Krzysztof\n",
-                "Collection[1]:\n|\tname:\n|\t|\tReceived: Krzysztof\n|\t|\tExpected: John\n"
+                "Collection[0]:\n|\tname:\n|\t|\tExpected: Krzysztof\n|\t|\tActual\t: John\n",
+                "Collection[1]:\n|\tname:\n|\t|\tExpected: John\n|\t|\tActual\t: Krzysztof\n"
             ]
         )
     }
@@ -195,7 +197,7 @@ class DifferenceTests: XCTestCase {
         runTest(
             expected: State.loaded([0], "CommonString"),
             received: State.anotherLoaded([0], "CommonString"),
-            expectedResults: ["Received: anotherLoaded\nExpected: loaded\n"]
+            expectedResults: ["Expected: loaded\nActual\t: anotherLoaded\n"]
         )
     }
 
@@ -203,7 +205,7 @@ class DifferenceTests: XCTestCase {
         runTest(
             expected: State.loaded([0], "CommonString"),
             received: State.loadedWithDiffArguments(1),
-            expectedResults: ["Received: loadedWithDiffArguments\nExpected: loaded\n"]
+            expectedResults: ["Expected: loaded\nActual\t: loadedWithDiffArguments\n"]
         )
     }
 
@@ -213,7 +215,7 @@ class DifferenceTests: XCTestCase {
         runTest(
             expected: Person(petAges: ["Henny": 4]),
             received: Person(petAges: [:]),
-            expectedResults: ["petAges:\n|\tDifferent count:\n|\t|\tReceived: (0) [:]\n|\t|\tExpected: (1) [\"Henny\": 4]\n"]
+            expectedResults: ["petAges:\n|\tDifferent count:\n|\t|\tExpected: (1) [\"Henny\": 4]\n|\t|\tActual\t: (0) [:]\n"]
         )
     }
 
@@ -221,7 +223,7 @@ class DifferenceTests: XCTestCase {
         runTest(
             expected: Person(petAges: ["Henny": 4]),
             received: Person(petAges: nil),
-            expectedResults: ["petAges:\n|\tReceived: nil\n|\tExpected: Optional([\"Henny\": 4])\n"]
+            expectedResults: ["petAges:\n|\tExpected: Optional([\"Henny\": 4])\n|\tActual\t: nil\n"]
         )
     }
 
@@ -229,7 +231,7 @@ class DifferenceTests: XCTestCase {
         runTest(
             expected: Person(petAges: ["Henny": 4, "Jethro": 6]),
             received: Person(petAges: ["Henny": 1, "Jethro": 2]),
-            expectedResults: ["petAges:\n|\tKey Henny:\n|\t|\tReceived: 1\n|\t|\tExpected: 4\n|\tKey Jethro:\n|\t|\tReceived: 2\n|\t|\tExpected: 6\n"]
+            expectedResults: ["petAges:\n|\tKey Henny:\n|\t|\tExpected: 4\n|\t|\tActual\t: 1\n|\tKey Jethro:\n|\t|\tExpected: 6\n|\t|\tActual\t: 2\n"]
         )
     }
 
@@ -239,7 +241,7 @@ class DifferenceTests: XCTestCase {
         runTest(
             expected: Person(favoriteFoods: []),
             received: Person(favoriteFoods: ["Oysters"]),
-            expectedResults: ["favoriteFoods:\n|\tDifferent count:\n|\t|\tReceived: (1) [\"Oysters\"]\n|\t|\tExpected: (0) []\n"]
+            expectedResults: ["favoriteFoods:\n|\tDifferent count:\n|\t|\tExpected: (0) []\n|\t|\tActual\t: (1) [\"Oysters\"]\n"]
         )
     }
 
@@ -247,7 +249,7 @@ class DifferenceTests: XCTestCase {
         runTest(
             expected: Person(favoriteFoods: ["Oysters"]),
             received: Person(favoriteFoods: nil),
-            expectedResults: ["favoriteFoods:\n|\tReceived: nil\n|\tExpected: Optional(Set([\"Oysters\"]))\n"]
+            expectedResults: ["favoriteFoods:\n|\tExpected: Optional(Set([\"Oysters\"]))\n|\tActual\t: nil\n"]
         )
     }
 
