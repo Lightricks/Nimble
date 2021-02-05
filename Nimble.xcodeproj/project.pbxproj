@@ -1184,7 +1184,6 @@
 					"$(inherited)",
 					"-weak_framework",
 					XCTest,
-					"-weak-lXCTestSwiftSupport",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeffhui.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Nimble;
@@ -1226,7 +1225,6 @@
 					"$(inherited)",
 					"-weak_framework",
 					XCTest,
-					"-weak-lXCTestSwiftSupport",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeffhui.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Nimble;
