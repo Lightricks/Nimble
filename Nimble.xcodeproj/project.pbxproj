@@ -1970,7 +1970,6 @@
 					"$(inherited)",
 					"-weak_framework",
 					XCTest,
-					"-weak-lswiftXCTest",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeffhui.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Nimble;
@@ -2009,7 +2008,6 @@
 					"$(inherited)",
 					"-weak_framework",
 					XCTest,
-					"-weak-lswiftXCTest",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeffhui.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Nimble;
@@ -2095,7 +2093,6 @@
 					"$(inherited)",
 					"-weak_framework",
 					XCTest,
-					"-weak-lswiftXCTest",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeffhui.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Nimble;
@@ -2135,7 +2132,6 @@
 					"$(inherited)",
 					"-weak_framework",
 					XCTest,
-					"-weak-lswiftXCTest",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeffhui.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Nimble;
@@ -2223,7 +2219,6 @@
 					"$(inherited)",
 					"-weak_framework",
 					XCTest,
-					"-weak-lswiftXCTest",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeffhui.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Nimble;
@@ -2262,7 +2257,6 @@
 					"$(inherited)",
 					"-weak_framework",
 					XCTest,
-					"-weak-lswiftXCTest",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeffhui.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Nimble;
