@@ -17,11 +17,6 @@ public func allPass<S: Sequence>(
     return createPredicate(matcher)
 }
 
-@available(*, deprecated, message: "Use Predicate instead")
-public func allPass<S: Sequence, M: Matcher>(_ elementMatcher: M) -> Predicate<S> where S.Element == M.ValueType {
-    return createPredicate(elementMatcher.predicate)
-}
-
 public func allPass<S: Sequence>(_ elementPredicate: Predicate<S.Element>) -> Predicate<S> {
     return createPredicate(elementPredicate)
 }

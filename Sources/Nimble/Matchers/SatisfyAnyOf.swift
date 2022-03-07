@@ -48,16 +48,6 @@ public func || <T>(left: Predicate<T>, right: Predicate<T>) -> Predicate<T> {
     return satisfyAnyOf(left, right)
 }
 
-@available(*, deprecated, message: "Use Predicate instead")
-public func || <T>(left: NonNilMatcherFunc<T>, right: NonNilMatcherFunc<T>) -> Predicate<T> {
-    return satisfyAnyOf(left, right)
-}
-
-@available(*, deprecated, message: "Use Predicate instead")
-public func || <T>(left: MatcherFunc<T>, right: MatcherFunc<T>) -> Predicate<T> {
-    return satisfyAnyOf(left, right)
-}
-
 #if canImport(Darwin)
 import class Foundation.NSObject
 
