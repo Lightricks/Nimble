@@ -13,7 +13,7 @@ jobs:
     name: CocoaPods Lint
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: bundle install
       - run: ./test podspec
 
@@ -28,7 +28,7 @@ jobs:
     env:
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: ./test ${{ matrix.platform }}
       - run: ./test ${{ matrix.platform }}_xcodespm
 
@@ -41,5 +41,5 @@ jobs:
     env:
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: ./test swiftpm
