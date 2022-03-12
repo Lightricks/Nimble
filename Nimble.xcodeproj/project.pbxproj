@@ -425,6 +425,7 @@
 		CDFB6A4B1F7E082500AD8CC7 /* mach_excServer.c in Sources */ = {isa = PBXBuildFile; fileRef = CDFB6A371F7E082400AD8CC7 /* mach_excServer.c */; };
 		CDFB6A4C1F7E082500AD8CC7 /* mach_excServer.c in Sources */ = {isa = PBXBuildFile; fileRef = CDFB6A371F7E082400AD8CC7 /* mach_excServer.c */; };
 		CDFB6A4F1F7E084600AD8CC7 /* CwlMachBadInstructionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFB6A341F7E082400AD8CC7 /* CwlMachBadInstructionHandler.m */; };
+		D22C0AE927DCB2FF0012C33B /* Difference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C3A738255AB42200A0407E /* Difference.swift */; };
 		DA9E8C821A414BB9002633C2 /* DSL+Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E8C811A414BB9002633C2 /* DSL+Wait.swift */; };
 		DA9E8C831A414BB9002633C2 /* DSL+Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E8C811A414BB9002633C2 /* DSL+Wait.swift */; };
 		DD72EC641A93874A002F7651 /* AllPassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72EC631A93874A002F7651 /* AllPassTest.swift */; };
@@ -1650,6 +1651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDFB6A3F1F7E082500AD8CC7 /* CwlDarwinDefinitions.swift in Sources */,
+				D22C0AE927DCB2FF0012C33B /* Difference.swift in Sources */,
 				1FD8CD411968AB07008ED995 /* BeCloseTo.swift in Sources */,
 				1F1871D31CA89EEE00A34BF2 /* NMBExceptionCapture.m in Sources */,
 				106112BD2251DFE7000A5848 /* BeResult.swift in Sources */,
