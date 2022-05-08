@@ -40,7 +40,7 @@ public func be(_ expected: AnyObject?) -> Predicate<AnyObject> {
 }
 
 #if canImport(Darwin)
-import class Foundation.NSObject
+import Foundation
 
 extension NMBPredicate {
     @objc public class func beIdenticalToMatcher(_ expected: NSObject?) -> NMBPredicate {

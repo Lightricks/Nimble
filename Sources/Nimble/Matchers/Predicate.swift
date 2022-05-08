@@ -191,7 +191,7 @@ extension Predicate {
 }
 
 #if canImport(Darwin)
-import class Foundation.NSObject
+import Foundation
 
 public typealias PredicateBlock = (_ actualExpression: Expression<NSObject>) throws -> NMBPredicateResult
 

@@ -10,7 +10,7 @@ public func match(_ expectedValue: String?) -> Predicate<String> {
 }
 
 #if canImport(Darwin)
-import class Foundation.NSString
+import Foundation
 
 extension NMBPredicate {
     @objc public class func matchMatcher(_ expected: NSString) -> NMBPredicate {

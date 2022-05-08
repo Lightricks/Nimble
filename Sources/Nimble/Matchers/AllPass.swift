@@ -64,9 +64,7 @@ private func createPredicate<S: Sequence>(_ elementMatcher: Predicate<S.Element>
 }
 
 #if canImport(Darwin)
-import class Foundation.NSObject
-import struct Foundation.NSFastEnumerationIterator
-import protocol Foundation.NSFastEnumeration
+import Foundation
 
 extension NMBPredicate {
     @objc public class func allPassMatcher(_ predicate: NMBPredicate) -> NMBPredicate {

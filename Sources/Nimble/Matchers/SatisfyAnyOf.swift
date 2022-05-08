@@ -93,7 +93,7 @@ public func || <T>(left: some AsyncablePredicate<T>, right: some AsyncablePredic
 #endif // swift(>=5.8.0)
 
 #if canImport(Darwin)
-import class Foundation.NSObject
+import Foundation
 
 extension NMBPredicate {
     @objc public class func satisfyAnyOfMatcher(_ predicates: [NMBPredicate]) -> NMBPredicate {

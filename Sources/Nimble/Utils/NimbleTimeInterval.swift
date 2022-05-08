@@ -49,7 +49,7 @@ extension NimbleTimeInterval: CustomStringConvertible {
 }
 
 #if canImport(Foundation)
-import typealias Foundation.TimeInterval
+import Foundation
 
 extension TimeInterval {
     var nimbleInterval: NimbleTimeInterval {
