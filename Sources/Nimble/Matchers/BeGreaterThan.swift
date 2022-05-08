@@ -13,7 +13,7 @@ public func ><T: Comparable>(lhs: Expectation<T>, rhs: T) {
 }
 
 #if canImport(Darwin)
-import enum Foundation.ComparisonResult
+import Foundation
 
 /// A Nimble matcher that succeeds when the actual value is greater than the expected value.
 public func beGreaterThan(_ expectedValue: NMBComparable?) -> Predicate<NMBComparable> {

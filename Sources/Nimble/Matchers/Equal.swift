@@ -141,7 +141,7 @@ public func !=<T: Comparable>(lhs: Expectation<Set<T>>, rhs: Set<T>?) {
 }
 
 #if canImport(Darwin)
-import class Foundation.NSObject
+import Foundation
 
 extension NMBPredicate {
     @objc public class func equalMatcher(_ expected: NSObject) -> NMBPredicate {

@@ -41,7 +41,7 @@ public func && <T>(left: Predicate<T>, right: Predicate<T>) -> Predicate<T> {
 }
 
 #if canImport(Darwin)
-import class Foundation.NSObject
+import Foundation
 
 extension NMBPredicate {
     @objc public class func satisfyAllOfMatcher(_ predicates: [NMBPredicate]) -> NMBPredicate {
