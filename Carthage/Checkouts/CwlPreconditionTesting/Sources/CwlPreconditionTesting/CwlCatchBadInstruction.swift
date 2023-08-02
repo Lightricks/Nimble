@@ -170,7 +170,7 @@ public func catchBadInstruction(in block: @escaping () -> Void) -> BadInstructio
 		}
 		defer {
 			// 7. Cleanup the mach port
-			mach_port_destroy(mach_task_self_, context.currentExceptionPort)
+            mach_port_destruct(mach_task_self_, context.currentExceptionPort, 0, 0)
 		}
 		
 		try kernCheck {
