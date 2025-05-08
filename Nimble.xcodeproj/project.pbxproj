@@ -781,6 +781,8 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				ORGANIZATIONNAME = net.jeffhui;
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = 0A206775B110DA48A6B903AB /* Build configuration list for PBXProject "Nimble" */;
 			compatibilityVersion = "Xcode 14.0";
