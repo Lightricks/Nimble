@@ -2,7 +2,7 @@ import ProjectDescription
 
 let bundleIDPrefix = "net.jeffhui"
 let destinations: Destinations = .iOS.union(Destinations.macOS)
-let deploymentTargets: DeploymentTargets =  .multiplatform(iOS: "13.0", macOS: "12.0")
+let deploymentTargets: DeploymentTargets =  .multiplatform(iOS: "15.0", macOS: "12.0")
 
 let target: Target = .target(
   name: "Nimble",
